@@ -1,0 +1,73 @@
+﻿@model QuanLy_DaiHoc.Models.Khoa
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Khoa</h4>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="card">
+            <div class="card-body row">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-5 text-center d-flex align-items-center justify-content-center">
+                    <div class="">
+                        <h2>Bảng<strong>Khoa</strong></h2>
+                        @*                 ///<p class="lead mb-5">
+                    123 Testing Ave, Testtown, 9876 NA<br>
+                    Phone: +1 234 56789012
+                    </p>///*@
+                    </div>
+                </div>
+                <div class="col-7">
+                    <div class="form-group">
+
+                        <label for="inputKhoaID">KhoaID</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.KhoaId, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.KhoaId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <label for="inputTenKhoa">Tên Khoa</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TenKhoa, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TenKhoa, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <label for="inputNgayThanhLap">Ngày Thành Lập</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.NgayThanhLap, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NgayThanhLap, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        <label for="inputMota">Mô tả</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Mota, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Mota, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-primary" value="Save">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

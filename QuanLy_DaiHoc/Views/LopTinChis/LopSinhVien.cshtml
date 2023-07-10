@@ -1,0 +1,124 @@
+﻿@model List<NguoiDung>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<!-- Select2 -->
+<link rel="stylesheet" href="~/Template/AdminLTE-3.2.0/plugins/select2/css/select2.min.css">
+<link rel="stylesheet" href="~/Template/AdminLTE-3.2.0/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+<link rel="stylesheet" href="~/Template/AdminLTE-3.2.0/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="~/Template/AdminLTE-3.2.0/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" href="~/Template/AdminLTE-3.2.0/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Thêm sinh viên
+</button>
+<table class="table" id="LopTinChi">
+    <thead>
+        <tr>
+            <th>
+               Mã sinh viên
+            </th>
+            <th>
+                Tên người dùng
+            </th>
+
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdNguoiDung)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenNguoiDung)
+            </td>
+            <td>
+                <a href="/LopTinChis/deleteSinhVien?id=@ViewBag.Id&idUser=@item.IdNguoiDung">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+     <form method="post" action="/LopTinChis/AddSinhVien/@ViewBag.Id">
+        <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <select class="select2" multiple="multiple" name="mySelect" data-placeholder="Select a State" style="width: 100%;" >
+                     @foreach(var index in ViewBag.ListAddUser )
+                            {
+                               <option value="@index.IdNguoiDung">@index.TenNguoiDung</option>
+                            }
+
+                </select>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Add</button>
+              </div>
+         </div>       
+     </form> 
+</div>
+</div>
+<script src="~/Template/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="~/Template/AdminLTE-3.2.0/plugins/select2/js/select2.full.min.js"></script>
+
+<!-- InputMask -->
+<script src="~/Template/AdminLTE-3.2.0/plugins/moment/moment.min.js"></script>
+<script src="~/Template/AdminLTE-3.2.0/plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- DataTables  & Plugins -->
+<script src="~/Template/AdminLTE-3.2.0/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="~/Template/AdminLTE-3.2.0/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="~/Template/AdminLTE-3.2.0/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="~/Template/AdminLTE-3.2.0/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="~/Template/AdminLTE-3.2.0/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="~/Template/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="~/Template/AdminLTE-3.2.0/plugins/jszip/jszip.min.js"></script>
+<script src="~/Template/AdminLTE-3.2.0/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="~/Template/AdminLTE-3.2.0/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="~/Template/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="~/Template/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="~/Template/AdminLTE-3.2.0/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+
+
+<script>
+    $(function () { 
+        $('.select2').select2()
+
+        //Initialize Select2 Elements
+        $('.select2bs4').select2({
+          theme: 'bootstrap4'
+        })
+        $("#LopTinChi").DataTable({
+            "responsive": true, "lengthChange": true, "autoWidth": true,
+            "paging": true,
+            "autoFill": true,
+            "lengthChange": true,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": true,
+            "responsive": true,
+            "rowReorder": true,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
+        }).buttons().container().appendTo('#nguoiDung_wrapper .col-md-6:eq(0)');
+         
+    });
+    $(document).ready(function () {
+        $('#example').DataTable();
+    });
+
+</script>
+

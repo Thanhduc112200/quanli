@@ -1,0 +1,47 @@
+﻿@model QuanLy_DaiHoc.Models.QuanLyPhong
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row justify-content-md-center">
+    <div class="col-md-4">
+        <div class="card card-primary">
+
+            <div class="card-header">
+                <h3 class="card-title">Details</h3>
+            </div>
+            <div class="card-body">
+
+                <div class="form-group">
+                    <label>Tên phòng</label>
+                    <input type="text" class="form-control float-right" name="TenP" value="@Model.TenP" />
+
+
+                </div>
+
+                <div class="form-group">
+                    <label>Số điện thoại</label>
+                    <input type="text" class="form-control float-right" name="SDT" value="@Model.Sdt" />
+
+
+                </div>
+
+                <div class="form-group">
+                    <label>Địa chỉ email</label>
+                    <input type="text" class="form-control float-right" name="DCM" value="@Model.Dcm" />
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Idphong }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

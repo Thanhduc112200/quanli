@@ -1,0 +1,160 @@
+﻿@model QuanLy_DaiHoc.Models.TblBan
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Create</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row justify-content-md-center">
+
+        <div class="col-md-6">
+            <div class="card card-primary">
+                <div class="card-header">
+                    
+                    <h2 style="text-align:center">THÊM BAN</h2>
+                </div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="col-12">
+                        <div class="form-group">
+
+                            <label for="inputTenKhoa">Tên ban:</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.TenBan, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.TenBan, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="inputNgayThanhLap">Trưởng ban:</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.Sdt, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Sdt, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <label for="inputMota">Ngày thành lập :</label>
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.NgayThanhLap, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NgayThanhLap, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    <div class="form-group">
+
+                        <label for="inputMota">Số điện thoại :</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Sdt, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Sdt, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="inputMota">Email :</label>
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="Save">
+                        @Html.ActionLink("Back to List", "Index")
+                        </div>
+                    </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+@*<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaBan" class="control-label"></label>
+                <input asp-for="MaBan" class="form-control" />
+                <span asp-validation-for="MaBan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenBan" class="control-label"></label>
+                <input asp-for="TenBan" class="form-control" />
+                <span asp-validation-for="TenBan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TruongBan" class="control-label"></label>
+                <input asp-for="TruongBan" class="form-control" />
+                <span asp-validation-for="TruongBan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgayThanhLap" class="control-label"></label>
+                <input asp-for="NgayThanhLap" class="form-control" />
+                <span asp-validation-for="NgayThanhLap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sdt" class="control-label"></label>
+                <input asp-for="Sdt" class="form-control" />
+                <span asp-validation-for="Sdt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+
+@*<div class="card card-success">
+    <div class="card-header">
+        <h3 class="card-title">Thêm Ban</h3>
+    </div>
+    <div class="card-body">
+
+        <label for="MaBan">Mã Ban</label>
+        <input class="form-control form-control-lg" type="text" name="MaBan" id="MaBan" value="@Model.MaBan">
+
+        <label for="TenBan">Tên Ban</label>
+        <input class="form-control form-control-lg" type="text" name="TenBan" id="TenBan" value="@Model.TenBan">
+
+        <label for="TruongBan">Trưởng Ban</label>
+        <input class="form-control form-control-lg" type="text" name="TruongBan" id="TruongBan" value="@Model.TruongBan">
+
+        <label for="NgayThanhLap">Ngày thành lập</label>
+        <input class="form-control form-control-lg" type="text" name="NgayThanhLap" id="NgayThanhLap" value="@Model.NgayThanhLap">
+
+        <label for="Sdt">Số điện thoại</label>
+        <input class="form-control form-control-lg" type="text" name="Sdt" id="Sdt" value="@Model.Sdt">
+
+        <label for="Email">Email</label>
+        <input class="form-control form-control-lg" type="text" name="Email" id="Email" value="@Model.Email">
+
+    </div>
+
+    <form asp-action="Create">
+        <input type="hidden" asp-for="MaBan" />
+        <input type="submit" value="Create" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+    <!-- /.card-body -->
+</div>*@
+
+
+@*
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@

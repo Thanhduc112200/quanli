@@ -1,0 +1,136 @@
+﻿@model QuanLy_DaiHoc.Models.TblBan
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*<h1>Details</h1>*@
+
+@*<div>
+    <h4>TblBan</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TenBan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TenBan)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TruongBan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TruongBan)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NgayThanhLap)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NgayThanhLap)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sdt)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sdt)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+</div>*@
+
+@*
+<div class="card card-primary">
+    <div class="card-header">
+        <h3 class="card-title">Chi tiết Ban</h3>
+    </div>
+    <form>
+        <div class="card-body">
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TenBan, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DisplayNameFor(model => model.TenBan)
+                    @Html.DisplayFor(model => model.TenBan)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TruongBan, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DisplayNameFor(model => model.TruongBan)
+                    @Html.DisplayFor(model => model.TruongBan)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NgayThanhLap, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DisplayNameFor(model => model.NgayThanhLap)
+                    @Html.DisplayFor(model => model.NgayThanhLap)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Sdt, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DisplayNameFor(model => model.Sdt)
+                    @Html.DisplayFor(model => model.Sdt)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DisplayNameFor(model => model.Email)
+                    @Html.DisplayFor(model => model.Email)
+
+        </div>*@
+        <!-- /.card-body -->
+
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Chi tiết Ban</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form id="quickForm" novalidate="novalidate">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="TenBan">Tên Ban</label>
+                                <input type="text" name="TenBan" class="form-control" id="TenBan" value ="@Model.TenBan">
+                            </div>
+                            <div class="form-group">
+                                <label for="TruongBan">Trưởng Ban</label>
+                                <input type="text" name="TruongBan" class="form-control" id="TruongBan" value="@Model.TruongBan">
+                            </div>
+                            <div class="form-group">
+                                <label for="NgayThanhLap">Ngày thành lập</label>
+                                <input type="text" name="NgayThanhLap" class="form-control" id="NgayThanhLap" value="@Model.NgayThanhLap">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Sdt">Số điện thoại</label>
+                                <input type="text" name="Sdt" class="form-control" id="Sdt" value="@Model.Sdt">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Email">Email</label>
+                                <input type="email" name="Email" class="form-control" id="Email" value ="@Model.Email">
+                            </div>
+                    </form>
+
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.MaBan">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+                </div>
+
+</div>
+
+

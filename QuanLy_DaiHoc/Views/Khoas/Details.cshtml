@@ -1,0 +1,51 @@
+﻿@model QuanLy_DaiHoc.Models.Khoa
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<h2>Details</h2>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+
+            <!-- Profile Image -->
+            <div class="card card-primary card-outline">
+                <div class="card-body box-profile">
+                    <div class="text-center">
+                        <img class="profile-user-img img-fluid img-circle"
+                             src="../../dist/img/user4-128x128.jpg"
+                             alt="User profile picture">
+                    </div>
+
+                    <h3 class="profile-username text-center">  @Html.DisplayFor(model => model.TenKhoa)</h3>
+
+
+
+                    <ul class="list-group list-group-unbordered mb-3">
+                        <li class="list-group-item">
+                            <b>Khoa ID</b> <a class="float-right"> @Html.DisplayFor(model => model.KhoaId)</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Ngày Thành Lập</b> <a class="float-right"> @Html.DisplayFor(model => model.NgayThanhLap)</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Mô Tả</b> <a class="float-right"> @Html.DisplayFor(model => model.Mota)</a>
+                        </li>
+                    </ul>
+
+
+                    <p class="btn btn-primary btn-block">  @Html.ActionLink("Edit", "Edit", new { id = Model.KhoaId }) Edit</p>
+                    <p class="btn btn-primary btn-block ">  @Html.ActionLink("Back to List", "Index")  Back to List</p>
+                </div>
+                <!-- /.card-body -->
+            </div>
+        </div>
+    </div>
+</div>
